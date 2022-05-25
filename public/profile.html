@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="./images/Screenshot_2.png"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+		<title>HomeStudy</title>
+	</head>
+	<body>
+        <header><img id="logo" alt="logo" src="./images/output-onlinepngtools_1.png"></header>
+        <a href="#logo"><img id="back-to-top" alt="back-to-top" src="./images/top.jpg"></a>
+        <aside id="menu">
+            <nav>
+                <a href="./index.html">Αναζήτηση Μαθημάτων</a>
+                <a href="./register.html">Εγγραφή</a>
+                <a href="#">Προφίλ</a>
+            </nav>
+        </aside>
+        <main>
+        	<article>
+        		<h1>Ταυτοποίηση και προβολή του προφίλ χρήστη</h1>
+                <div id="formdisappear"> 
+                    <form id="logIn-form" autocomplete="on" action="/userProfile" method="post" onsubmit="userlog(); ">
+                        <fieldset>
+                            <legend>Σύνδεση</legend>
+                            <div class="personal">
+                                <label for="email" id="label-email">Email</label>
+                                <input type="email" id="logIn-email" placeholder="Enter your email e.g. example@gmail.com" required/><br>
+                                <label for="password" id="label-password">Password</label>
+                                <input type="password" id="logIn-password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*?[!@#$%^&*]).{8,}" autocomplete="off" required>
+                            </div>
+                        </fieldset>
+                        <button type="submit" value="submit" id="logIn">Log-in</button>
+                        <br><br>
+                    </form>
+                </div>
+                <!-- Handlebars template below -->
+                <div id="userProfile"></div>
+                <script id="user-details-template" type="text/x-handlebars-template">                    
+                    {{#each user}}
+                        <section id="loginlist">
+                            <h1>Στοιχεία χρήστη</h1>
+                            <hr><ul > 
+                                <li>E-mail: {{this.email}}</li>
+                                <li>Όνομα: </li>
+                                <li>Επώνυμο: </li>
+                                <li>Διεύθυνση: </li>
+                                <li>Τηλέφωνο: </li>                            
+                            </ul>
+                        </section>
+                    {{/each}}
+                </script>
+        	</article>
+        </main>
+        <aside id="categories-menu">
+            <nav>
+                <!-- Handlebars template below -->
+                <div id="categories"></div>
+                <script id="categories-template" type="text/x-handlebars-template">
+                    {{#each category}}
+                        <a href="./courses.html?category={{id}}">{{title}}</a>
+                    {{/each}}
+                </script>
+            </nav>
+        </aside>
+        <footer>
+            <p><strong>Επικοινωνία:</strong><br>
+            Χριστίνα Αιμιλία Φλασκή: <img alt="christina-email" class="footer-icon" src="./images/email.png"> p3180195@aueb.gr <img alt="christina-git" class="footer-icon" src="./images/github.png"><a class="footer-link" href="https://github.com/christinaflaski">christinaflaski</a><br>
+            Όλγα Μαργέλη: <img class="footer-icon" alt="olga-email" src="./images/email.png"> p3180103@aueb.gr <img class="footer-icon" alt="olga-git" src="./images/github.png"><a class="footer-link" href="https://github.com/lunnetta"> lunnetta</a><br><br>
+            © Copyright 2021. All rights reserved</p>
+        </footer>
+        <script type="text/javascript" src="./js/search-menu.js"></script>
+        <script type="text/javascript" src="./js/loginValidation.js"></script>
+        <script type="text/javascript" src="./js/profile.js"></script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="./images/Screenshot_2.png"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+		<title>HomeStudy</title>
+	</head>
+	<body>
+        <header><img id="logo" alt="logo" src="./images/output-onlinepngtools_1.png"></header>
+        <a href="#logo"><img id="back-to-top" alt="back-to-top" src="./images/top.jpg"></a>
+        <aside id="menu">
+            <nav>
+                <a href="#">Αναζήτηση Μαθημάτων</a>
+                <a href="./register.html">Εγγραφή</a>
+                <a href="./profile.html">Προφίλ</a>
+            </nav>
+        </aside>
+        <main>
+        	<article>
+        		<h1>Αναζήτηση Μαθημάτων</h1>
+                <input id="searchInput" type="text" placeholder="Search for a lesson ..." id="input" autofocus>
+                <button id="searchButton" type="submit" onclick="searchForCourse()"> Search </button>
+                <!-- Handlebars template below -->
+                <div id="searchCourses"></div>
+                <script id="course-details-template" type="text/x-handlebars-template">
+                    {{#each course}}
+                    <section class="lesson-section">
+                        <h1>{{title}}, id: {{id}}, category: {{category}}</h1>
+                        <img src="https://elearning-aueb.herokuapp.com/static/images/{{img}}"><br>
+                        <table>
+                        <thead>
+                            <tr>
+                                <th>Objectives</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{objectives}}
+                                </td>
+                                <td>
+                                    {{description}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </section>
+                    {{/each}}
+                </script>
+        	</article>
+        </main>
+        <aside id="categories-menu">
+            <nav>
+                <!-- Handlebars template below -->
+                <div id="categories"></div>
+                <script id="categories-template" type="text/x-handlebars-template">
+                    {{#each category}}
+                        <a href="./courses.html?category={{id}}">{{title}}</a>
+                    {{/each}}
+                </script>
+            </nav>
+        </aside>
+        <footer>
+            <p><strong>Επικοινωνία:</strong><br>
+            Χριστίνα Αιμιλία Φλασκή: <img alt="christina-email" class="footer-icon" src="./images/email.png"> p3180195@aueb.gr <img alt="christina-git" class="footer-icon" src="./images/github.png"><a class="footer-link" href="https://github.com/christinaflaski">christinaflaski</a><br>
+            Όλγα Μαργέλη: <img class="footer-icon" alt="olga-email" src="./images/email.png"> p3180103@aueb.gr <img class="footer-icon" alt="olga-git" src="./images/github.png"><a class="footer-link" href="https://github.com/lunnetta"> lunnetta</a><br><br>
+            © Copyright 2021. All rights reserved</p>
+        </footer>
+        <script type="text/javascript" src="./js/search-menu.js"></script>
+    </body>
+</html>

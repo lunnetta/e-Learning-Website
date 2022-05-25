@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="./images/Screenshot_2.png"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+		<title>HomeStudy</title>
+	</head>
+	<body>
+        <header><img id="logo" alt="logo" src="./images/output-onlinepngtools_1.png"></header>
+        <a href="#logo"><img id="back-to-top" alt="back-to-top" src="./images/top.jpg"></a>
+        <aside id="menu">
+            <nav>
+                <a href="./index.html">Αναζήτηση Μαθημάτων</a>
+                <a href="#">Εγγραφή </a>
+                <a href="./profile.html">Προφίλ</a>
+            </nav>
+        </aside>
+        <main>
+        	<article>
+        		<h1>Εγγραφή νέου χρήστη</h1>
+                <p>Συμπληρώστε όλα τα πεδία με λατινικούς χαρακτήρες. Συμπληρώστε υποχρεωτικά όλα τα κόκκινα πεδία. Θα γίνουν πράσινα όταν
+                η είσοδος είναι σωστή.</p>
+                <form action="./index.html" id="signUp-form" autocomplete="off" onsubmit="successfulSubmit(); userSignUp();">
+                    <fieldset>
+                        <legend>Προσωπικά Στοιχεία</legend>
+                        <div class="personal">
+                            <label for="name" id="label-name">Όνομα</label>
+                            <input type="text" id="name" class="must" placeholder="Enter your name" pattern="[A-Za-z]{2,}" required autofocus/>
+                            <label for="lastname" id="label-lastname">Επώνυμο</label>
+                            <input type="text" id="lastname" class="must" placeholder="Enter your last name" pattern="[A-Za-z]{2,}" required/>
+                            <label>Διεύθυνση</label>
+                            <input type="text" id="address" class="must" name="address" placeholder="Address" required>
+                            <label for="phone">Τηλέφωνο</label>
+                            <input type="tel" id="phone" class="must" name="phone" placeholder="Enter your phone number"
+                            pattern="[0-9]{10}" required>
+                            <label>Μορφωτικό Επίπεδο</label>
+                            <select class="must" required>
+                                <option value=""></option>
+                                <option>Αναλφάβητος(η)</option>
+                                <option>Απόφοιτος(η) Δημοτικού</option>
+                                <option>Απόφοιτος(η) Γυμνασίου</option>
+                                <option>Απόφοιτος(η) Λυκείου</option>
+                                <option>Απόφοιτος(η) ΤΕΙ</option>
+                                <option>Απόφοιτος(η) ΑΕΙ</option>
+                            </select>
+                            <br><hr><h3>Στοιχεία Χρήστη</h3><hr><br>
+                            <label for="email" id="label-email">Email</label>
+                            <input type="email" id="email" class="must" placeholder="Enter your email e.g. example@gmail.com" required/>
+                            <details>
+                                <summary>Κωδικός Πρόσβασης</summary>
+                                <p>Ο κωδικός πρέπει να έχει τουλάχιστον ένα αριθμό, ένα γράμμα, ένα από τα ειδικά σύμβολα !@#$%^&*
+                                 και 8 χαρακτήρες συνολικά.</p>
+                            </details>
+                            <input type="password" id="password" class="must" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*?[!@#$%^&*]).{8,}" autocomplete="off" required>
+                            <details>
+                                <summary>Επιβεβαίωση Κωδικού Πρόσβασης</summary>
+                                <p>Επιβεβαιώστε τον κωδικό που δώσατε παραπάνω.</p>
+                            </details>
+                            <input type="password" id="confirm-password" class="must" name="confirm-password" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*?[!@#$%^&*]).{8,}"
+                                autocomplete="off" required>
+                        </div>
+                    </fieldset>
+                    <button type="submit" value="Create new user" id="submit">Submit</button>
+                    <br><br>
+                </form>
+        	</article>
+        </main>
+        <aside id="categories-menu">
+            <nav>
+                <!-- Handlebars template below -->
+                <div id="categories"></div>
+                <script id="categories-template" type="text/x-handlebars-template">
+                    {{#each category}}
+                        <a href="./courses.html?category={{id}}">{{title}}</a>
+                    {{/each}}
+                </script>
+            </nav>
+        </aside>
+        <footer>
+            <p><strong>Επικοινωνία:</strong><br>
+            Χριστίνα Αιμιλία Φλασκή: <img alt="christina-email" class="footer-icon" src="./images/email.png"> p3180195@aueb.gr <img alt="christina-git" class="footer-icon" src="./images/github.png"><a class="footer-link" href="https://github.com/christinaflaski">christinaflaski</a><br>
+            Όλγα Μαργέλη: <img class="footer-icon" alt="olga-email" src="./images/email.png"> p3180103@aueb.gr <img class="footer-icon" alt="olga-git" src="./images/github.png"><a class="footer-link" href="https://github.com/lunnetta"> lunnetta</a><br><br>
+            © Copyright 2021. All rights reserved</p>
+        </footer>
+        <script type="text/javascript" src="./js/search-menu.js"></script>
+        <script type="text/javascript" src="./js/validation.js"></script>
+        <script type="text/javascript" src="./js/signUp.js"></script>
+    </body>
+</html>
